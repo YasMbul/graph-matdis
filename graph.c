@@ -4,8 +4,11 @@
 int main (){
     system("cls");
     int n;
+    char jawab;
     printf("Masukkan Jumlah Vertex : "); scanf("%d",&n);
     int m[n][n];
+    int h[n];
+    int a[n];
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j <= i; j++)
@@ -23,6 +26,7 @@ int main (){
 
     system("cls");
     
+    //menampilkan matriks graph
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -34,11 +38,29 @@ int main (){
             }
         }
     }
-
+    printf("\n");
+    //ambil informasi hubungan vertex ke-0
+    for (int i=0; i<n; i++)
+    {
+        h[i] = m[0][i];
+    }
     
-
-
-
-
+    //bandingkan dan or kan
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<n; j++)
+        {
+            if (m[i][j] == 1)
+            {
+                h[j] = 1;
+            }
+        }
+    }
+    
+    //tampilkan isi h[]
+    for (int i=0; i<n; i++)
+    {
+        printf("%d ", h[i]);
+    }
     return 0;
 }
