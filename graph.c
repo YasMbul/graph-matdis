@@ -6,7 +6,6 @@ void
 int main (){
     system("cls");
     int n;
-    char jawab;
     printf("Masukkan Jumlah Vertex : "); scanf("%d",&n);
     int m[n][n];
     int h[n];
