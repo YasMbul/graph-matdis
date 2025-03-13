@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void
+
 int main (){
     system("cls");
     int n;
