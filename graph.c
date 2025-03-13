@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void
 
 int main (){
     system("cls");
@@ -10,6 +9,7 @@ int main (){
     int m[n][n];
     int h[n];
     int a[n];
+    printf("NB: Jika ada hubungan ketik 1, jika tidak ada ketik 0\n");
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j <= i; j++)
