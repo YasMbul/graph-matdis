@@ -8,11 +8,11 @@ int main (){
     printf("Masukkan Jumlah Vertex : "); scanf("%d",&n);
     int m[n][n];
     int h[n];
-    int a[n];
+    // int a[n];
     printf("NB: Jika ada hubungan ketik 1, jika tidak ada ketik 0\n");
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j <= i; j++)
+        for (int j = i; j < n; j++)
         {
             if (i == j)
             {
@@ -25,8 +25,8 @@ int main (){
         }
     }
 
-    system("cls");
-    
+    // system("cls");
+    printf("\n");
     //menampilkan matriks graph
     for (int i = 0; i < n; i++)
     {
@@ -51,17 +51,31 @@ int main (){
     {
         for (int j=0; j<n; j++)
         {
-            if (m[i][j] == 1)
+            if (m[i][j] == 1 && h[j] == 0)
             {
                 h[j] = 1;
             }
         }
     }
-    
-    //tampilkan isi h[]
-    for (int i=0; i<n; i++)
-    {
-        printf("%d ", h[i]);
+
+    int total = 0;
+    for (int i = 0; i < n; i++){
+        total += h[i];
     }
+
+
+    if (total == n){
+        printf("Graph terhubung\n");
+    }
+    else {
+        printf("Graph tidak terhubungan\n");
+    }
+
+
+    // tampilkan isi h[]
+    // for (int i=0; i<n; i++)
+    // {
+    //     printf("%d ", h[i]);
+    // }
     return 0;
 }
