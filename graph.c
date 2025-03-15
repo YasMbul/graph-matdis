@@ -22,7 +22,7 @@ int main (){
             {
                 m[i][j] = 0;
             }
-            if (i != j) {
+            else {
                 int cek = 0;
                 while (!cek){ // Mekanisme melarang input selain 0/1
                     printf("Hubungan vertex ke-%d dengan vertex ke-%d = ", i+1, j+1); scanf("%d", &m[i][j]);
@@ -69,9 +69,9 @@ int main (){
         }
     }
 
-    // Mengecek keterhubungan
+    // Mengecek keterhubungan sesuai arah
     if (tanpaArah){
-        for (int i=0; i<n; i++)
+        for (int i=1; i<n; i++)
         {
             for (int j=0; j<n; j++)
             {
@@ -101,6 +101,7 @@ int main (){
 
     int total = 0;
     for (int i = 0; i < n; i++){
+        // h[] = 1, 1, 1, 1 / 
         total += h[i];
     }
 
