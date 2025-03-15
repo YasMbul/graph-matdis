@@ -19,8 +19,16 @@ int main (){
                 m[i][j] = 0;
             }
             else {
-                printf("Hubungan vertex ke-%d dengan vertex ke-%d = ", i+1, j+1); scanf("%d", &m[i][j]);
-                m[j][i] = m[i][j];
+                int cek = 0;
+                while (!cek){
+                    printf("Hubungan vertex ke-%d dengan vertex ke-%d = ", i+1, j+1); scanf("%d", &m[i][j]);
+                    if (m[i][j] == 0 || m[i][j] == 1){
+                        cek = 1;
+                        m[j][i] = m[i][j];
+                    } else {
+                        printf("Masukkan hanya nilai 1 dan 0!!!\n");
+                    }
+                }
             }
         }
     }
