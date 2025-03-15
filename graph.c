@@ -97,7 +97,6 @@ int main (){
 
     int total = 0;
     for (int i = 0; i < n; i++){
-        // h[] = 1, 1, 1, 1 / 
         total += h[i];
     }
 
@@ -143,7 +142,7 @@ int main (){
                     derajat += m[i][j];
                     totalDerajat += 1;
                 }
-                if (m[j][i] == 1){
+                else if (m[j][i] == 1){
                     derajat += m[j][i];
                     totalDerajat += 1;
                 }
