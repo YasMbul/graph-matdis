@@ -13,7 +13,6 @@ int main (){
     int n = inputVertex();
     int m[n][n];
     int h[n];
-    // int a[n];
     printf("NB: Jika ada hubungan ketik 1, jika tidak ada ketik 0\n");
     for (int i = 0; i < n; i++)
     {
