@@ -155,6 +155,7 @@ int main (){
             printf("Jumlah derajat vertex %d = %d\n", i+1, derajat);
         }
     }
+    printf("Jumlah derajat total = %d", totalDerajat);
 
     return 0;
 }
