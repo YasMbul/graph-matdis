@@ -25,11 +25,10 @@ int main (){
             }
             if (i != j) {
                 int cek = 0;
-                while (!cek){
+                while (!cek){ // Mekanisme melarang input selain 0/1
                     printf("Hubungan vertex ke-%d dengan vertex ke-%d = ", i+1, j+1); scanf("%d", &m[i][j]);
                     if (m[i][j] == 0 || m[i][j] == 1){
                         cek = 1;
-                        // m[j][i] = m[i][j];
                     } else {
                         printf("Masukkan hanya nilai 1 dan 0!!!\n");
                     }
@@ -38,11 +37,9 @@ int main (){
         }
     }
 
-    // system("cls");
     printf("\n");
-    //menampilkan matriks graph
+    //menampilkan graph dalam bentuk matriks
     printf("Bentuk matriks :\n");
-
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -54,33 +51,27 @@ int main (){
             }
         }
     }
+
     printf("\n");
-    //ambil informasi hubungan vertex ke-0
+
+    //ambil informasi edge vertex pertama
     for (int i=0; i<n; i++)
     {
         h[i] = m[0][i];
     }
-    
-    
-
-    int total = 0;
-    for (int i = 0; i < n; i++){
-        total += h[i];
-    }
-
 
     // Cek berarah atau tidak
-    bool arah = true;
+    bool tanpaArah = true;
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
             if (m[i][j] != m[j][i]){
-                arah = false;
+                tanpaArah = false;
             }
         }
     }
 
     // Mengecek keterhubungan
-    if (arah){
+    if (tanpaArah){
         for (int i=0; i<n; i++)
         {
             for (int j=0; j<n; j++)
@@ -92,21 +83,29 @@ int main (){
             }
         }
     }
-    for (int i=0; i<n; i++)
-    {
-        for (int j=0; j<n; j++)
+    else {
+        for (int i=0; i<n; i++)
         {
-            if (m[i][j] == 1 && h[j] == 0)
+            for (int j=0; j<n; j++)
             {
-                h[j] = 1;
-            }
-            if (m[j][i] == 1 && h[j] == 0)
-            {
-                h[j] = 1;
+                if (m[i][j] == 1 && h[j] == 0)
+                {
+                    h[j] = 1;
+                }
+                if (m[j][i] == 1 && h[j] == 0)
+                {
+                    h[j] = 1;
+                }
             }
         }
     }
 
+    int total = 0;
+    for (int i = 0; i < n; i++){
+        total += h[i];
+    }
+
+    // Mencetak informasi Jenis graph
     printf("Jenis graph ini :\n");
     
     if (total == n){
@@ -116,7 +115,7 @@ int main (){
         printf("Graph tidak terhubung\n");
     }
     
-    if (arah){
+    if (tanpaArah){
         printf("Graph tidak berarah\n");
     }
     else {
@@ -126,7 +125,7 @@ int main (){
 
     // Hitung derajat vertex dan derajat total
     int totalDerajat = 0;
-    if (arah){
+    if (tanpaArah){ // Derajat vertex tanpa arah
         printf("\nJumlah derajat per vertex serta derajat total : \n");
         for (int i = 0; i < n; i++){
             int derajat = 0;
@@ -139,33 +138,23 @@ int main (){
             printf("Jumlah derajat vertex %d = %d\n", i+1, derajat);
         }
     }
-    else {
+    else { // Derajat vertex dengan arah
         printf("\nJumlah derajat per vertex serta derajat total : \n");
         for (int i = 0; i < n; i++){
             int derajat = 0;
             for (int j = 0; j < n; j++){
                 if (m[i][j] == 1){
                     derajat += m[i][j];
-                    // derajat += m[j][i];
                     totalDerajat += 1;
                 }
                 if (m[j][i] == 1){
-                    // derajat += m[i][j];
                     derajat += m[j][i];
                     totalDerajat += 1;
                 }
             }
             printf("Jumlah derajat vertex %d = %d\n", i+1, derajat);
         }
-
     }
 
-    printf("Jumlah derajat total = %d", totalDerajat);
-
-    // tampilkan isi h[]
-    // for (int i=0; i<n; i++)
-    // {
-    //     printf("\n%d ", h[i]);
-    // }
     return 0;
 }
