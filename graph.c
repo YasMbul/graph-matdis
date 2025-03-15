@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int inputVertex (){
+    int n;
+    printf("Masukkan Jumlah Vertex : "); scanf("%d",&n);
+    return n;
+}
 
 int main (){
     system("cls");
-    int n;
-    printf("Masukkan Jumlah Vertex : "); scanf("%d",&n);
+    int n = inputVertex();
     int m[n][n];
     int h[n];
     // int a[n];
@@ -28,6 +32,8 @@ int main (){
     // system("cls");
     printf("\n");
     //menampilkan matriks graph
+    printf("Bentuk matriks :\n");
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -68,7 +74,7 @@ int main (){
         printf("Graph terhubung\n");
     }
     else {
-        printf("Graph tidak terhubungan\n");
+        printf("Graph tidak terhubung\n");
     }
 
 
