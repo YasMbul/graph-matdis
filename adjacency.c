@@ -284,9 +284,9 @@ void keterhubungan()
 int main()
 {
   system("cls");
-  representasi();
+  // representasi();
   // cekTidakBerarah();
   // keterhubungan();
-  // derajat();
+  derajat();
   // cekGelang();
 }
