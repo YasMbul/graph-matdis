@@ -55,3 +55,4 @@ dkms.conf
 
 tempCodeRunnerFile.c
 lat.c
+adjacency.c
